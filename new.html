@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Создать статью - учебный проект Википедия</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<header class="page-header page-header--wide">
+		<div class="page-header__logo">
+			<a href="index.html"><img src="img/wiki-logo.png" alt="Википедия"></a>
+		</div>
+		<div class="page-header__page-title">
+			<h1>Добавить новую статью</h1>
+		</div>
+	</header>
+
+	<div class="page-wrapper page-wrapper--wide">
+		<div class="editor-col">
+			<div class="editor-section-title">
+				Редактор статьи
+			</div>
+			<div class="form-group">
+				<input class="form-input" type="text" placeholder="Название статьи" id='article-title'>
+			</div>
+
+			<div class="form-group" id='article-content-section-block'>
+				<div class="link-button">
+					<!-- Link to open the modal -->
+					<a href="#linkSelectModal">Добавить ссылку</a>
+				</div>
+				<textarea class="form-textarea" name="" id="" cols="30" rows="10"></textarea>
+			</div>
+
+			<button class="button-save" id='save-article-button'>Сохранить статью</button>
+
+		</div>
+		<div class="article-preview-col" id='new-articles-section-block'>
+			<div class="article-preview-section-title">
+				Предпросмотр статьи
+			</div>
+			<article class="article-wrapper"></article>
+		</div>
+	</div>
+
+	<!-- Modal HTML embedded directly into document -->
+	<div id="linkSelectModal" class="modal">
+		<h1>Выберите страницу</h1>
+		<form action="">
+			<div class="form-group">
+				<select class="form-select" name="" id="links-bar">
+					<!-- <option value="">Статья 1</option> -->
+				</select>
+			</div>
+			<div class="form-group">
+				<button class="button" id='set-link-button'>Указать ссылку</button>
+			</div>
+		</form>
+	</div>
+
+	<!-- https://jquerymodal.com -->
+
+	<!-- Remember to include jQuery :) -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+	<!-- jQuery Modal -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+	<script>
+	$('a[href="#linkSelectModal"]').click(function(event) {
+		event.preventDefault();
+		$(this).modal({
+			fadeDuration: 250
+		});
+	});
+
+	</script>
+
+	<!-- https://github.com/markedjs/marked -->
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	
+	<script src='js/serverImitation.js'></script>
+	<script src='js/new.js'></script>
+
+</body>
+
+</html>
